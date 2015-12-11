@@ -60,7 +60,7 @@ def get_2_words(line):
 
 # main (ここからスタート)
 def start(check_word):
-    print APP_ROOT
+    print(APP_ROOT)
     # ファイルを取得
     f1 = open(APP_ROOT+'/../data/location_dictionary.txt')
     locate_dic = f1.read()
@@ -69,7 +69,7 @@ def start(check_word):
     location_dic = []
     location_dic = locate_dic.split(',')
     print('立地辞書:')
-    print location_dic
+    print (location_dic)
     print("----------------------------------------")
 
 
