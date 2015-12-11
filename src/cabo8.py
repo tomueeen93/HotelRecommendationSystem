@@ -108,16 +108,7 @@ def start(check_word):
     f1.close
     f2.close
     print("----------------------------------------")
-
-
-    limitdata=[]
-    for i in pair:
-        kakarimoto = (",".join(i)).split(",")[0]
-        print(str(kakarimoto))
-        print(str(location_dic[0]))
-        if(str(kakarimoto)==location_dic[i]):
-            print("[match]")
-    print("------")
+    
 
 # コマンドラインからこのプログラムを読んだときだけこれを実行する
 if __name__ == '__main__':
