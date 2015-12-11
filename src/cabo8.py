@@ -85,11 +85,11 @@ def start(check_word):
             elem = fromstring(xmlString)
 
             values = [] #係り値1.3
-        for chunk in elem.findall(".//chunk"):
-            values.append(chunk.get("score"))
+            for chunk in elem.findall(".//chunk"):
+                values.append(chunk.get("score"))
 
-            kakariset = [] #料理-->美味しい
-            tuples = get_2_words(hoteldata1)
+                kakariset = [] #料理-->美味しい
+                tuples = get_2_words(hoteldata1)
             for t in tuples:
                 kakariset.append([t[0],t[1]]) #pair = []#kakarisetとvaluesを一組
 
@@ -100,6 +100,7 @@ def start(check_word):
                     pair.append([kakariset[i][0],kakariset[i][1],values[i]])
 
             hoteldata1 = f2.readline()
+
     # 係先のデータを表示
     # 信頼度が＋のものだけを保存している
     for j in pair :
