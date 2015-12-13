@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 import sys
 import tkinter
-import tkinter.messagebox 
+import tkinter.messagebox
 import cabo8
 
 
@@ -65,31 +65,31 @@ def check(event):
         text += "お風呂はチェックされています\n"
     else:
         text += "お風呂はチェックされていません\n"
-        
+
     if Val4.get() == True:
         text += "ネット環境はチェックされています\n"
     else:
         text += "ネット環境はチェックされていません\n"
-        
+
     if Val5.get() == True:
         text += "価格はチェックされています\n"
     else:
         text += "価格はチェックされていません\n"
-        
+
     if Val6.get() == True:
         text += "景色はチェックされています\n"
     else:
         text += "景色はチェックされていません\n"
-        
+
     if Val7.get() == True:
         text += "立地はチェックされています\n"
     else:
         text += "立地はチェックされていません\n"
-        
+
 
     cabo8.start(check_word)
     tkinter.messagebox.showinfo('info',text)
-   
+
 
 #
 # チェックボックスの各項目の初期値

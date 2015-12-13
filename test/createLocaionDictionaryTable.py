@@ -11,58 +11,46 @@ import sqlite3
 APP_ROOT = path.dirname( path.abspath( __file__ ) )
 
 def main():
-    print("\tStart main")
-
-    con = sqlite3.connect(APP_ROOT+'/../db/emotionPolarityDB',isolation_level=None)
+    print("\tStarted main")
+    con = sqlite3.connect(APP_ROOT+'/../db/hotelRecDB',isolation_level=None)
 
     # tableの削除
-    sql1 = u"drop table if exists words;"
+    sql1 = u"drop table if exists location_dics;"
     con.execute(sql1)
-    print("\tDelete existed table")
+    print("\tDeleted exist table")
 
     # tableの作成
-    sql2 = u"create table if not exists words(word_id integer primary key,word text,hiragana text,type text,value real);"
+    sql2 = u"create table if not exists location_dics(location_dic_id integer primary key,word text);"
     con.execute(sql2)
     print("\tCreated table")
 
     # データの取得
-    f1 = open(APP_ROOT+'/../data/EmotionalPolarityList.txt')
+    f1 = open(APP_ROOT+'/../data/location_dictionary.txt')
     line = f1.readline()
-    rows = line.split(' ')
+    rows = line.split(',')
     f1.close()
-    print("\tLoaded file")
+    print("\tLoaded File")
 
     # データの挿入
     count = 0
     total = len(rows)
     m2 = str(total).decode('utf-8')
-
     for row in rows:
-        count= count+1
-
-        # print("insert : "+row) # 表示用
-        cols = row.split(":")
-        if(len(cols)<4):print ("----------Error!!------------")
-        val0 = cols[0].decode('utf-8')
-        val1 = cols[1].decode('utf-8')
-        val2 = cols[2].decode('utf-8')
-        val3 = cols[3].decode('utf-8')
-
-        sql3 = u"insert into words(word,hiragana,type,value)  values('"+val0+"','"+val1+"','"+val2+"', "+val3+");"
+        count = count+1
+        val = row.decode("utf-8")
+        sql3 = u"insert into location_dics(word)  values('"+val+"');"
         con.execute(sql3)
 
         # 出力設定
         m1 = str(count).decode('utf-8')
-
         message = "\tNow inserting........."+m1+"/"+m2
         print message, "\r", # python 2.x
         # print(message, "\r", end="") # python 3.x
         sys.stdout.flush()
 
     con.close()
-
     print("")
     print("\tFinish!!")
 
-if __name__=='__main__':
+if __name__ == '__main__':
     main()
