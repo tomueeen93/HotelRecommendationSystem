@@ -8,7 +8,9 @@
 
 from os import path
 import CaboCha # debug時はコメントアウト
+import sys
 from xml.etree.ElementTree import *
+import evalateHotelScore
 
 # このプログラムの絶対パスを取得
 APP_ROOT = path.dirname( path.abspath( __file__ ) )
@@ -59,19 +61,18 @@ def get_2_words(line):
     return tuples
 
 # main (ここからスタート)
-def start(check_word):
+def main(hotel_name):
     print(APP_ROOT)
     # ファイルを取得
     f1 = open(APP_ROOT+'/../data/location_dictionary.txt')
     locate_dic = f1.read()
-    #f.close()
+
     # 立地辞書の生成
     location_dic = []
     location_dic = locate_dic.split(',')
     print('立地辞書:')
     print (location_dic)
     print("----------------------------------------")
-
 
     pair = []
     reliability = 0.0;# どれくらい信頼性を担保するのか設定する
@@ -108,9 +109,13 @@ def start(check_word):
     f1.close
     f2.close
     print("----------------------------------------")
-    
+
+    evalateHotelScore.main(hotel_name,pair)
+
 
 # コマンドラインからこのプログラムを読んだときだけこれを実行する
 if __name__ == '__main__':
-    # startメソッドの軌道
-    start("")
+    if (len(sys.argv) > 1):
+        main(sys.argv[1])
+    else:
+        print ("Please set single argment")
