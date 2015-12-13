@@ -62,6 +62,7 @@ def get_2_words(line):
 
 # main (ここからスタート)
 def main(hotel_name):
+
     print(APP_ROOT)
     # ファイルを取得
     f1 = open(APP_ROOT+'/../data/location_dictionary.txt')

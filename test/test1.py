@@ -12,6 +12,7 @@ APP_ROOT = path.dirname( path.abspath( __file__ ) )
 
 # 立地辞書に含まれている単語が、pairsの中に含まれていた場合に合計スコアに加算するテスト
 def main():
+    print ("Start main")
     # 立地辞書の生成
     f1 = open(APP_ROOT+'/../data/EmotionalPolarityList.txt')
     line = f1.readline() # 1行を文字列として読み込む(改行文字も含まれる)
