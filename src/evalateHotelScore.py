@@ -34,14 +34,14 @@ def main(hotel_name,pair_array):
     # スコアをつける
     total_score = 0.0
     for pair in pair_array:
-        str1 = pair[0].decode("utf-8")
+        str1 = pair[0]
         sql1 = u"SELECT * FROM location_dics WHERE word=='"+str1+"';"
         cursor = con1.execute(sql1)
 
         # 1つ目のデータが立地辞書にある場合
         val = cursor.fetchone()
         if (val != None):
-            str2 = pair[1].decode("utf-8")
+            str2 = pair[1]
             sql2=u"SELECT * FROM words WHERE word=='"+str2+"';"
             cursor2 = con2.execute(sql2)
 
