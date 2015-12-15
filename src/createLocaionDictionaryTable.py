@@ -34,15 +34,18 @@ def main():
     # データの挿入
     count = 0
     total = len(rows)
-    m2 = str(total).decode('utf-8')
+    # m2 = str(total).decode('utf-8') # python 2.x
+    m2 = str(total) # python 3.x
     for row in rows:
         count = count+1
-        val = row.decode("utf-8")
+        # val = row.decode("utf-8") # python 2.x
+        val = row # python 3.x
         sql3 = u"insert into location_dics(word)  values('"+val+"');"
         con.execute(sql3)
 
         # 出力設定
-        m1 = str(count).decode('utf-8')
+        # m1 = str(count).decode('utf-8') # 2.x
+        m1 = str(count) # python 3.x
         message = "\tNow inserting........."+m1+"/"+m2
         print message, "\r", # python 2.x
         # print(message, "\r", end="") # python 3.x
