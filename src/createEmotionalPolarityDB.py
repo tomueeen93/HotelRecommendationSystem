@@ -55,8 +55,8 @@ def main():
         m1 = str(count).decode('utf-8')
 
         message = "\tNow inserting........."+m1+"/"+m2
-        print message, "\r", # python 2.x
-        # print(message, "\r", end="") # python 3.x
+        # print message, "\r", # python 2.x
+        print(message, "\r", end="") # python 3.x
         sys.stdout.flush()
 
     con.close()
