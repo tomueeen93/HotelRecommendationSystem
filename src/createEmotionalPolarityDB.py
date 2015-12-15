@@ -36,7 +36,7 @@ def main():
     count = 0
     total = len(rows)
     # m2 = str(total).decode('utf-8') # python2.x
-    m2 = str(total).decode('utf-8') # python3.x
+    m2 = str(total) # python3.x
 
     for row in rows:
         count= count+1
