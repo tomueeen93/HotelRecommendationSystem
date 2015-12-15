@@ -35,7 +35,8 @@ def main():
     # データの挿入
     count = 0
     total = len(rows)
-    m2 = str(total).decode('utf-8')
+    # m2 = str(total).decode('utf-8') # python2.x
+    m2 = str(total).decode('utf-8') # python3.x
 
     for row in rows:
         count= count+1
@@ -43,16 +44,24 @@ def main():
         # print("insert : "+row) # 表示用
         cols = row.split(":")
         if(len(cols)<4):print ("----------Error!!------------")
-        val0 = cols[0].decode('utf-8')
-        val1 = cols[1].decode('utf-8')
-        val2 = cols[2].decode('utf-8')
-        val3 = cols[3].decode('utf-8')
+
+        # python2.x
+        # val0 = cols[0].decode('utf-8')
+        # val1 = cols[1].decode('utf-8')
+        # val2 = cols[2].decode('utf-8')
+        # val3 = cols[3].decode('utf-8')
+        # python3.x
+        val0 = cols[0]
+        val1 = cols[1]
+        val2 = cols[2]
+        val3 = cols[3]
 
         sql3 = u"insert into words(word,hiragana,type,value)  values('"+val0+"','"+val1+"','"+val2+"', "+val3+");"
         con.execute(sql3)
 
         # 出力設定
-        m1 = str(count).decode('utf-8')
+        # m1 = str(count).decode('utf-8') # python 2.x
+        m1 = str(count) # python 3.x
 
         message = "\tNow inserting........."+m1+"/"+m2
         # print message, "\r", # python 2.x
